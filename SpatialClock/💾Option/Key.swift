@@ -1,4 +1,4 @@
-enum 💾Key {
+enum Key {
     static let hideDate: String = "hideDate"
     static let showYear: String = "showYear"
     static let hideWeekday: String = "hideWeekday"

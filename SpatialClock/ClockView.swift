@@ -1,9 +1,12 @@
 import SwiftUI
 
-struct 🕒ClockView: View {
-    @EnvironmentObject var model: 🥽AppModel
+struct ClockView: View {
+    @EnvironmentObject var model: AppModel
+    
     @AppStorage("firstLaunch") private var firstLaunch: Bool = true
+    
     @State private var taskToDisappearSettingButton: Task<Void, Never>? = nil
+    
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             HStack(spacing: 0) {
@@ -16,7 +19,7 @@ struct 🕒ClockView: View {
                     .fixedSize()
                 if self.model.showBattery { 🔋BatteryView() }
             }
-            .modifier(💾Option.Animation(value: context.date))
+            .modifier(Option.Animation(value: context.date))
             .foregroundStyle(self.model.textColor)
             .padding(.horizontal)
             .padding(.init(self.model.padding))
@@ -33,7 +36,7 @@ struct 🕒ClockView: View {
     }
 }
 
-private extension 🕒ClockView {
+private extension ClockView {
     private var format: Date.FormatStyle {
         var value: Date.FormatStyle = .dateTime.hour().minute()
         if !self.model.hideDate {
@@ -66,7 +69,7 @@ private extension 🕒ClockView {
         }
     }
     private struct ApplyAnimation: ViewModifier {
-        @EnvironmentObject var model: 🥽AppModel
+        @EnvironmentObject var model: AppModel
         func body(content: Content) -> some View {
             content
                 .animation(.default, value: self.model.hideDate)

@@ -40,12 +40,12 @@ extension 🗒️StaticInfo {
                 case .main: [
                     "App.swift",
                     "ContentView.swift",
-                    "🥽AppModel.swift",
-                    "🕒ClockView.swift"
+                    "AppModel.swift",
+                    "ClockView.swift"
                 ]
                 case .Setting: [
                     "🛠️SettingButton.swift",
-                    "🛠️SettingMenu.swift",
+                    "SettingMenu.swift",
                     "🛠️ClockTab.swift",
                     "🛠️VisualTab.swift",
                     "🛠️RestTab.swift",
@@ -53,8 +53,8 @@ extension 🗒️StaticInfo {
                     "🛠️AboutTab.swift"
                 ]
                 case .Option: [
-                    "💾Option.swift",
-                    "💾Key.swift"
+                    "Option.swift",
+                    "Key.swift"
                 ]
                 case .Rest: [
                     "🔋BatteryView.swift",

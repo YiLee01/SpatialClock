@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct 🛠️VisualTab: View {
-    @EnvironmentObject var model: 🥽AppModel
+    @EnvironmentObject var model: AppModel
     var body: some View {
         NavigationStack {
             List {
@@ -13,7 +13,7 @@ struct 🛠️VisualTab: View {
                     Label("Font size", systemImage: "calendar")
                 }
                 Picker(selection: self.$model.fontWeight) {
-                    ForEach(💾Option.FontWeight.allCases) {
+                    ForEach(Option.FontWeight.allCases) {
                         Text($0.label)
                             .font(.system(.body, weight: $0.value))
                     }
@@ -21,7 +21,7 @@ struct 🛠️VisualTab: View {
                     Label("Font weight", systemImage: "bold")
                 }
                 Picker(selection: self.$model.fontDesign) {
-                    ForEach(💾Option.FontDesign.allCases) {
+                    ForEach(Option.FontDesign.allCases) {
                         Text($0.label)
                             .font(.system(.body, design: $0.value))
                     }
@@ -45,7 +45,7 @@ struct 🛠️VisualTab: View {
                     Label("Angle", systemImage: "angle")
                 }
                 Picker(selection: self.$model.animation) {
-                    ForEach(💾Option.Animation.Case.allCases) {
+                    ForEach(Option.Animation.Case.allCases) {
                         Text($0.label)
                     }
                 } label: {
@@ -76,13 +76,13 @@ struct 🛠️VisualTab: View {
 
 private extension 🛠️VisualTab {
     private struct TextColorPicker: View {
-        @EnvironmentObject var model: 🥽AppModel
+        @EnvironmentObject var model: AppModel
         var body: some View {
             ColorPicker(selection: self.$model.textColor, supportsOpacity: false) {
                 Label("Text color", systemImage: "paintpalette")
             }
             .onChange(of: self.model.textColor) { _, newValue in
-                💾Option.save(newValue)
+                Option.save(newValue)
             }
         }
     }

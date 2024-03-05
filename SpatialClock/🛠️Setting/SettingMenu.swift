@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct 🛠️SettingMenu: View {
-    @EnvironmentObject var model: 🥽AppModel
+struct SettingMenu: View {
+    @EnvironmentObject var model: AppModel
     var body: some View {
         TabView {
             🛠️ClockTab()

@@ -1,6 +1,7 @@
 import SwiftUI
 
-enum 💾Option {
+enum Option {
+    
     enum FontWeight: String, CaseIterable, Identifiable {
         case ultraLight, thin, light, regular, medium, semibold, bold, heavy, black
         var id: Self { self }
@@ -31,6 +32,7 @@ enum 💾Option {
             }
         }
     }
+    
     enum FontDesign: String, CaseIterable, Identifiable {
         case `default`, serif, rounded, monospaced
         var id: Self { self }
@@ -51,8 +53,9 @@ enum 💾Option {
             }
         }
     }
+    
     struct Animation: ViewModifier {
-        @EnvironmentObject var model: 🥽AppModel
+        @EnvironmentObject var model: AppModel
         var value: Date
         func body(content: Content) -> some View {
             switch self.model.animation {
@@ -67,6 +70,7 @@ enum 💾Option {
                         .animation(.default, value: self.value)
             }
         }
+        
         enum Case: String, CaseIterable, Identifiable {
             case disable, `default`, cool
             var id: Self { self }
@@ -79,25 +83,27 @@ enum 💾Option {
             }
         }
     }
+    
     static func load() -> Color {
-        if let ⓓata = UserDefaults.standard.data(forKey: 💾Key.textColor),
+        if let ⓓata = UserDefaults.standard.data(forKey: Key.textColor),
            let ⓜodel = try? JSONDecoder().decode(Self.ColorModel.self, from: ⓓata) {
             ⓜodel.value
         } else {
             .white
         }
     }
+    
     static func save(_ value: Color) {
         do {
             UserDefaults.standard.setValue(try JSONEncoder().encode(Self.ColorModel(value)),
-                                           forKey: 💾Key.textColor)
+                                           forKey: Key.textColor)
         } catch {
             assertionFailure()
         }
     }
 }
 
-private extension 💾Option {
+private extension Option {
     private struct ColorModel: Codable {
         var r, g, b: Double
         var value: Color { .init(red: self.r, green: self.g, blue: self.b) }

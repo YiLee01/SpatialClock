@@ -20,9 +20,9 @@ struct ℹ️IconAndName: View {
         HStack {
             Spacer()
             VStack(spacing: 8) {
-                Image(.aboutAppIcon)
-                    .resizable()
-                    .frame(width: 100, height: 100)
+//                Image(.aboutAppIcon)
+//                    .resizable()
+//                    .frame(width: 100, height: 100)
                 VStack(spacing: 6) {
                     Text(🗒️StaticInfo.appName)
                         .font(.system(.headline, design: .rounded))
@@ -334,18 +334,18 @@ private struct 🧑‍💻AboutDeveloperPublisherLink: View {
                     Text("As of 2023", tableName: "🌐AboutApp")
                 }
                 Self.TimelineSection()
-                Section {
-                    Image(.developerPublisher)
-                        .resizable()
-                        .frame(width: 90, height: 90)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                        .padding()
-                        .opacity(0.6)
-                } header: {
-                    Text("Image", tableName: "🌐AboutApp")
-                } footer: {
-                    Text("Taken on 2021-11", tableName: "🌐AboutApp")
-                }
+//                Section {
+//                    Image(.developerPublisher)
+//                        .resizable()
+//                        .frame(width: 90, height: 90)
+//                        .clipShape(RoundedRectangle(cornerRadius: 8))
+//                        .padding()
+//                        .opacity(0.6)
+//                } header: {
+//                    Text("Image", tableName: "🌐AboutApp")
+//                } footer: {
+//                    Text("Taken on 2021-11", tableName: "🌐AboutApp")
+//                }
                 Self.jobHuntSection()
             }
             .navigationTitle(.init("Developer / Publisher", tableName: "🌐AboutApp"))
